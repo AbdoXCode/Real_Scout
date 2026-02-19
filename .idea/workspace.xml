@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="748f2e9e-bbd4-4606-b5a1-b302357788c2" name="Changes" comment="add new screens and layout updates; implement font loading and splash screen handling">
-      <change afterPath="$PROJECT_DIR$/app/(root)/(tabs)/_layout.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(root)/_layout.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/global.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
+    <list default="true" id="748f2e9e-bbd4-4606-b5a1-b302357788c2" name="Changes" comment="add layout components and global styles; implement sign-in screen with Google authentication (without logic)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(tabs)/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(tabs)/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/sign_in.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/sign_in.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +87,8 @@
       <workItem from="1770843825549" duration="2849000" />
       <workItem from="1770846837157" duration="102000" />
       <workItem from="1770846954586" duration="11000" />
-      <workItem from="1770846969047" duration="2431000" />
+      <workItem from="1770846969047" duration="2627000" />
+      <workItem from="1771509605985" duration="905000" />
     </task>
     <task id="LOCAL-00001" summary="add new screens and layout updates; implement font loading and splash screen handling">
       <option name="closed" value="true" />
@@ -107,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770763836060</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add layout components and global styles; implement sign-in screen with Google authentication (without logic)">
+      <option name="closed" value="true" />
+      <created>1770849558783</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770849558783</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,7 +114,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add new screens and layout updates; implement font loading and splash screen handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new screens and layout updates; implement font loading and splash screen handling" />
+    <MESSAGE value="add layout components and global styles; implement sign-in screen with Google authentication (without logic)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add layout components and global styles; implement sign-in screen with Google authentication (without logic)" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
