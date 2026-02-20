@@ -1,5 +1,7 @@
-import {SplashScreen, Stack} from "expo-router";
 import {useFonts} from "expo-font";
+import {UserProvider} from "../contexts/UserContext";
+import {SplashScreen, Stack} from "expo-router";
+import useUser from "../hooks/useUser";
 import {useEffect} from "react";
 
 export default function RootLayout() {
@@ -12,19 +14,37 @@ export default function RootLayout() {
         "Rubik-SemiBold": require("../assets/fonts/Rubik-SemiBold.ttf"),
     })
 
-    useEffect(() => {
-        if (fonts) {
-            SplashScreen.hideAsync()
-        }
-    }, [fonts]);
-
     if (!fonts) {
         return null
     }
 
+
     return (
-        <Stack screenOptions={{headerShown: false}}>
-            <Stack.Screen name="sign_in"/>
+        <UserProvider>
+            <InnerApp fontsLoaded={fonts}/>
+        </UserProvider>
+    )
+}
+
+function InnerApp({fontsLoaded}) {
+    const {user, loading} = useUser()
+
+    useEffect(() => {
+        if (fontsLoaded && !loading) {
+            SplashScreen.hideAsync()
+        }
+    }, [fontsLoaded, loading]);
+
+    if (!fontsLoaded || loading) {
+        return null;
+    }
+    return (
+        <Stack key={user ? 'authenticated' : 'unauthenticated'} screenOptions={{headerShown: false}}>
+            {user ? (
+                <Stack.Screen name="(root)" options={{headerShown: false}}/>
+            ) : (
+                <Stack.Screen name="(auth)" options={{headerShown: false}}/>
+            )}
         </Stack>
     )
 }

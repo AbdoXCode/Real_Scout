@@ -1,12 +1,25 @@
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native'
+import {Alert, Image, ScrollView, Text, TouchableOpacity, View} from 'react-native'
 import React from 'react'
 import {SafeAreaView} from "react-native-safe-area-context";
-import Images from "../constants/images";
-import "./global.css"
-import icons from "../constants/icons";
+import Images from "../../constants/images";
+import "../global.css"
+import icons from "../../constants/icons";
+import useUser from "../../hooks/useUser";
 
 
 export default function SignIn() {
+    const {login} = useUser()
+
+    async function loginWithGoogle() {
+        try {
+            await login()
+        } catch (error) {
+            Alert.alert("Login Failed", "Unable to login with Google. Please try again.")
+            console.log(error.message)
+        }
+    }
+
+
     return (
         <SafeAreaView className="bg-white flex-1">
             <ScrollView contentContainerStyle={{height: "100%"}}>
@@ -22,7 +35,8 @@ export default function SignIn() {
                     <Text className="text-center text-lg text-black-200 mt-5 font-rubik">Login to Real Scout with
                         Google</Text>
 
-                    <TouchableOpacity className="bg-white shadow-md shadow-zinc-300 rounded-full w-full py-4 mt-6">
+                    <TouchableOpacity className="bg-white shadow-md shadow-zinc-300 rounded-full w-full py-4 mt-6"
+                                      onPress={loginWithGoogle}>
                         <View className="flex-row justify-center items-center">
                             <Image source={icons.google} className="w-5 h-5" resizeMode="contain"/>
                             <Text className="text-center font-rubik-medium text-lg ml-2.5">

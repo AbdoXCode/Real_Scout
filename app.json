@@ -16,6 +16,7 @@
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/icon.png"
       },
+      "package": "com.abdoxcode.realscout",
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
@@ -55,6 +56,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "2ff6e33c-2fcf-4e2e-aa95-2aaee511ad1f"
+      }
+    },
+    "owner": "abdoxcode"
   }
 }
