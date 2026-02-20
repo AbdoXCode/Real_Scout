@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="748f2e9e-bbd4-4606-b5a1-b302357788c2" name="Changes" comment="add XML configuration files for migration states and update Babel configuration for NativeWind">
-      <change afterPath="$PROJECT_DIR$/app/(auth)/_layout.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contexts/UserContext.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eas.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/appwrite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/(tabs)/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/(tabs)/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/sign_in.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign_in.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="748f2e9e-bbd4-4606-b5a1-b302357788c2" name="Changes" comment="add .idea to .gitignore to exclude IDE-specific files from version control">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +98,7 @@
       <workItem from="1771509605985" duration="1697000" />
       <workItem from="1771512239758" duration="5623000" />
       <workItem from="1771527219049" duration="3633000" />
-      <workItem from="1771576950942" duration="19324000" />
+      <workItem from="1771576950942" duration="19473000" />
     </task>
     <task id="LOCAL-00001" summary="add new screens and layout updates; implement font loading and splash screen handling">
       <option name="closed" value="true" />
@@ -136,7 +124,23 @@
       <option name="project" value="LOCAL" />
       <updated>1771511330579</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add user authentication context and implement Google login functionality">
+      <option name="closed" value="true" />
+      <created>1771597138947</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771597138947</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add .idea to .gitignore to exclude IDE-specific files from version control">
+      <option name="closed" value="true" />
+      <created>1771597228134</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1771597228134</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +153,9 @@
     <MESSAGE value="add new screens and layout updates; implement font loading and splash screen handling" />
     <MESSAGE value="add layout components and global styles; implement sign-in screen with Google authentication (without logic)" />
     <MESSAGE value="add XML configuration files for migration states and update Babel configuration for NativeWind" />
-    <option name="LAST_COMMIT_MESSAGE" value="add XML configuration files for migration states and update Babel configuration for NativeWind" />
+    <MESSAGE value="add user authentication context and implement Google login functionality" />
+    <MESSAGE value="add .idea to .gitignore to exclude IDE-specific files from version control" />
+    <option name="LAST_COMMIT_MESSAGE" value="add .idea to .gitignore to exclude IDE-specific files from version control" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
