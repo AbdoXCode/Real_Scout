@@ -39,7 +39,7 @@ function InnerApp({fontsLoaded}) {
         return null;
     }
     return (
-        <Stack key={user ? 'authenticated' : 'unauthenticated'} screenOptions={{headerShown: false}}>
+        <Stack screenOptions={{headerShown: false}}>
             {user ? (
                 <Stack.Screen name="(root)" options={{headerShown: false}}/>
             ) : (
