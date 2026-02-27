@@ -1,6 +1,7 @@
 import {ActivityIndicator, Image, Text, View} from "react-native";
 import "../../global.css"
 import useUser from "../../../hooks/useUser";
+import {SafeAreaView} from "react-native-safe-area-context";
 
 export default function Index() {
     const {user} = useUser()
@@ -9,7 +10,7 @@ export default function Index() {
         return <ActivityIndicator style={{flex: 1}} size="large"/>
     }
     return (
-        <View
+        <SafeAreaView
             style={{
                 flex: 1,
                 justifyContent: "center",
@@ -21,6 +22,6 @@ export default function Index() {
                 source={{uri: user.avatar}}
                 className="size-44"
             />
-        </View>
+        </SafeAreaView>
     );
 }
