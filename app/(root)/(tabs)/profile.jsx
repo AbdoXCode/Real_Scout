@@ -22,7 +22,7 @@ export default function Profile() {
 
     }
     return (
-        <SafeAreaView className="m-5">
+        <SafeAreaView className="flex-1 p-5 bg-white">
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View className="flex-row items-center justify-between">
                     <Text className="text-xl font-rubik-bold">Profile</Text>
