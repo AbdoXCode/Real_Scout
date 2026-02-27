@@ -46,7 +46,6 @@ export default function SignIn() {
                             </View>
                         </TouchableOpacity>
                     </View>
-
                 </View>
             </ScrollView>
         </SafeAreaView>
