@@ -31,6 +31,9 @@ import swim from "@/assets/icons/swim.png";
 import wifi from "@/assets/icons/wifi.png";
 import location from "@/assets/icons/location.png";
 import edit from "@/assets/icons/edit.png";
+import home_light from "@/assets/icons/home_light.png";
+import search_bold from "@/assets/icons/search_bold.png";
+import person_bold from "@/assets/icons/person_bold.png";
 
 export default {
   google,
@@ -66,4 +69,7 @@ export default {
   wifi,
   location,
   edit,
+  home_light,
+  search_bold,
+  person_bold
 };

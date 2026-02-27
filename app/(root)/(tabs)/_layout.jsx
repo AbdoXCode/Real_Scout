@@ -18,18 +18,18 @@ export default function TabsLayout() {
             <Tabs.Screen name="index" options={{
                 title: "Home",
                 tabBarIcon: ({focused}) => (
-                    <Image source={icons.home} className="size-6" tintColor={focused ? "#0061FF" : "#666876"}/>
+                    <Image source={focused ? icons.home : icons.home_light} className="size-6" tintColor={focused ? "#0061FF" : "#666876"}/>
                 )
             }}/>
             <Tabs.Screen name="explore" options={{
                 title: "Explore",
                 tabBarIcon: ({focused}) => (
-                    <Image source={icons.search} className="size-6" tintColor={focused ? "#0061FF" : "#666876"}/>
+                    <Image source={focused ? icons.search_bold : icons.search} className="size-6" tintColor={focused ? "#0061FF" : "#666876"}/>
                 )
             }}/><Tabs.Screen name="profile" options={{
             title: "Profile",
             tabBarIcon: ({focused}) => (
-                <Image source={icons.person} className="size-6" tintColor={focused ? "#0061FF" : "#666876"}/>
+                <Image source={focused ? icons.person_bold : icons.person} className="size-6" tintColor={focused ? "#0061FF" : "#666876"}/>
             )
         }}/>
 

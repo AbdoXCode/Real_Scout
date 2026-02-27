@@ -1,4 +1,4 @@
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native'
+import {Alert, Image, ScrollView, Text, TouchableOpacity, View} from 'react-native'
 import {settings} from "../../../constants/data";
 import React from 'react'
 import {SafeAreaView} from "react-native-safe-area-context";
@@ -12,12 +12,19 @@ export default function Profile() {
     const {user , logout} = useUser()
 
     async function handleLogout(){
-        await logout()
+        try{
+            await logout()
+            Alert.alert("Logout Successful" , "You have been logged out successfully.")
+        }catch (e) {
+            Alert.alert("Logout Failed" , "Unable to logout. Please try again.")
+            console.log(e.message)
+        }
+
     }
     return (
         <SafeAreaView className="m-5">
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View className="flex-row items-center justify-between mr-5">
+                <View className="flex-row items-center justify-between">
                     <Text className="text-xl font-rubik-bold">Profile</Text>
                     <Image source={icons.bell} className="size-5"/>
                 </View>

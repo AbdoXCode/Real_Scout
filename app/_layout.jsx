@@ -27,7 +27,7 @@ export default function RootLayout() {
 }
 
 function InnerApp({fontsLoaded}) {
-    const {user, loading} = useUser()
+    const {loading} = useUser()
 
     useEffect(() => {
         if (fontsLoaded && !loading) {

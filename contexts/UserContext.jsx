@@ -43,7 +43,7 @@ export function UserProvider({children}) {
             await account.deleteSession("current")
             setUser(null)
         } catch (e) {
-            console.error(e)
+            throw Error(e.message)
         }
     }
 

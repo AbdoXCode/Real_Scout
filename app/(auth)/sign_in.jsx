@@ -35,15 +35,18 @@ export default function SignIn() {
                     <Text className="text-center text-lg text-black-200 mt-5 font-rubik">Login to Real Scout with
                         Google</Text>
 
-                    <TouchableOpacity className="bg-white shadow-md shadow-zinc-300 rounded-full w-full py-4 mt-6"
-                                      onPress={loginWithGoogle}>
-                        <View className="flex-row justify-center items-center">
-                            <Image source={icons.google} className="w-5 h-5" resizeMode="contain"/>
-                            <Text className="text-center font-rubik-medium text-lg ml-2.5">
-                                Sign Up with Google
-                            </Text>
-                        </View>
-                    </TouchableOpacity>
+                    <View className="mx-5 w-auto">
+                        <TouchableOpacity className="bg-white shadow-md shadow-zinc-300 rounded-full py-4 mt-6"
+                                          onPress={loginWithGoogle}>
+                            <View className="flex-row justify-center items-center">
+                                <Image source={icons.google} className="w-5 h-5" resizeMode="contain"/>
+                                <Text className="text-center font-rubik-medium text-lg ml-2.5">
+                                    Sign Up with Google
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
             </ScrollView>
         </SafeAreaView>
