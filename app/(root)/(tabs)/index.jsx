@@ -5,6 +5,7 @@ import {SafeAreaView} from "react-native-safe-area-context";
 import Images from "../../../constants/images";
 import icons from "../../../constants/icons";
 import SearchCustomBar from "../../../components/SearchCustomBar";
+import FeaturedCard from "../../../components/FeaturedCard";
 
 export default function Index() {
     const {user} = useUser()
@@ -12,6 +13,7 @@ export default function Index() {
     if (!user) {
         return <ActivityIndicator style={{flex: 1}} size="large"/>
     }
+
     return (
         <SafeAreaView className="bg-white flex-1 p-5">
             <View className="flex flex-row gap-2.5 items-center">
@@ -29,6 +31,8 @@ export default function Index() {
                 <Text className="text-xl font-rubik-semibold color-black-300">Featured</Text>
                 <Text className="font-rubik-semibold color-primary-300">See All</Text>
             </View>
+
+            <FeaturedCard/>
 
         </SafeAreaView>
     );
