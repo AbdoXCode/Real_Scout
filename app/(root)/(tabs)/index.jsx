@@ -1,11 +1,12 @@
-import {ActivityIndicator, Image, Text, View} from "react-native";
+import {ActivityIndicator, FlatList, Image, ScrollView, Text, View} from "react-native";
 import "../../global.css"
 import useUser from "../../../hooks/useUser";
 import {SafeAreaView} from "react-native-safe-area-context";
-import Images from "../../../constants/images";
 import icons from "../../../constants/icons";
 import SearchCustomBar from "../../../components/SearchCustomBar";
 import FeaturedCard from "../../../components/FeaturedCard";
+import {cards, featuredCards} from "../../../constants/data"
+import Card from "../../../components/Card";
 
 export default function Index() {
     const {user} = useUser()
@@ -15,24 +16,53 @@ export default function Index() {
     }
 
     return (
-        <SafeAreaView className="bg-white flex-1 p-5">
-            <View className="flex flex-row gap-2.5 items-center">
-                <Image source={{uri: user.avatar}} className="size-11 rounded-full"/>
-                <View>
-                    <Text className="text-xs font-rubik color-black-100">Good Morning</Text>
-                    <Text className="font-rubik-medium text-black-300">{user.name}</Text>
-                </View>
-                <Image source={icons.bell} className="size-6 ml-auto"/>
-            </View>
+        <SafeAreaView className="bg-white flex-1">
+                <FlatList
+                    showsVerticalScrollIndicator={false}
+                    ListHeaderComponent={() => (
+                        <>
+                            <View className="flex flex-row gap-2.5 items-center">
+                                <Image source={{uri: user.avatar}} className="size-11 rounded-full"/>
+                                <View>
+                                    <Text className="text-xs font-rubik color-black-100">Good Morning</Text>
+                                    <Text className="font-rubik-medium text-black-300">{user.name}</Text>
+                                </View>
+                                <Image source={icons.bell} className="size-6 ml-auto"/>
+                            </View>
 
-            <SearchCustomBar />
+                            <SearchCustomBar />
 
-            <View className="flex-row justify-between mt-6 items-center">
-                <Text className="text-xl font-rubik-semibold color-black-300">Featured</Text>
-                <Text className="font-rubik-semibold color-primary-300">See All</Text>
-            </View>
+                            <View className="flex-row justify-between mt-6 items-center">
+                                <Text className="text-xl font-rubik-semibold color-black-300">Featured</Text>
+                                <Text className="font-rubik-semibold color-primary-300">See All</Text>
+                            </View>
 
-            <FeaturedCard/>
+                            <FlatList
+                                showsHorizontalScrollIndicator={false}
+                                className="mt-5"
+                                contentContainerClassName="gap-5"
+                                data={featuredCards}
+                                horizontal
+                                renderItem={({item}) => (<FeaturedCard item={item} />)}
+                            />
+
+                            <View className="flex-row justify-between mt-8 mb-4 items-center">
+                                <Text className="text-xl font-rubik-semibold color-black-300">Our Recommendation</Text>
+                                <Text className="font-rubik-semibold color-primary-300">See All</Text>
+                            </View>
+                        </>
+                    )}
+                    data={cards}
+                    numColumns={2}
+                    contentContainerClassName="gap-4 p-5 pb-20"
+                    columnWrapperClassName="gap-4"
+                    renderItem={({item}) =>(
+                        <Card item={item}/>
+                    )}
+
+                />
+
+
 
         </SafeAreaView>
     );
