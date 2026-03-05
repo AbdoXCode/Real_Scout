@@ -1,12 +1,13 @@
-import {ActivityIndicator, FlatList, Image, ScrollView, Text, View} from "react-native";
+import {ActivityIndicator, FlatList, Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import "../../global.css"
 import useUser from "../../../hooks/useUser";
 import {SafeAreaView} from "react-native-safe-area-context";
 import icons from "../../../constants/icons";
 import SearchCustomBar from "../../../components/SearchCustomBar";
 import FeaturedCard from "../../../components/FeaturedCard";
-import {cards, featuredCards} from "../../../constants/data"
+import {cards, categories, featuredCards} from "../../../constants/data"
 import Card from "../../../components/Card";
+import Filter from "../../../components/filter";
 
 export default function Index() {
     const {user} = useUser()
@@ -50,11 +51,14 @@ export default function Index() {
                                 <Text className="text-xl font-rubik-semibold color-black-300">Our Recommendation</Text>
                                 <Text className="font-rubik-semibold color-primary-300">See All</Text>
                             </View>
+
+                            <Filter/>
+
                         </>
                     )}
                     data={cards}
                     numColumns={2}
-                    contentContainerClassName="gap-4 p-5 pb-20"
+                    contentContainerClassName="gap-4 p-5 pb-28"
                     columnWrapperClassName="gap-4"
                     renderItem={({item}) =>(
                         <Card item={item}/>
