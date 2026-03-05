@@ -2,10 +2,10 @@ import React from 'react'
 import {Redirect, Stack} from "expo-router";
 import {ActivityIndicator} from "react-native";
 import useUser from "../../hooks/useUser";
-import DataProvider from "../../contexts/useData";
+import DataProvider from "../../contexts/DataContext";
 
 export default function AppLayout() {
-    const {user,loading} = useUser()
+    const {user, loading} = useUser()
 
     if (loading) {
         return (
@@ -13,7 +13,7 @@ export default function AppLayout() {
         )
     }
 
-    if(!user){
+    if (!user) {
         return <Redirect href="/sign_in"/>
     }
 
