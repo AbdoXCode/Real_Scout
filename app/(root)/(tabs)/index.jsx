@@ -8,13 +8,17 @@ import FeaturedCard from "../../../components/FeaturedCard";
 import Card from "../../../components/Card";
 import Filter from "../../../components/filter";
 import useData from "../../../hooks/useData";
-import {useRouter} from "expo-router";
+import {useLocalSearchParams, useRouter} from "expo-router";
 
 export default function Index() {
     const {user} = useUser()
     const {properties, featuredProperties} = useData()
     const router = useRouter()
 
+    const filterParams = useLocalSearchParams()
+
+    const filteredProperties = (!filterParams.filter || filterParams.filter === "All") ? properties : properties.filter((item) => item.propertyType === filterParams.filter)
+    
     if (!user || !properties) {
         return <ActivityIndicator style={{flex: 1}} size="large"/>
     }
@@ -25,7 +29,7 @@ export default function Index() {
 
     return (
         <SafeAreaView className="bg-white flex-1">
-            <FlatList
+            {filteredProperties ? <FlatList
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={() => (
                     <>
@@ -64,14 +68,14 @@ export default function Index() {
 
                     </>
                 )}
-                data={properties}
+                data={filteredProperties}
                 numColumns={2}
                 contentContainerClassName="gap-4 p-5 pb-28"
                 columnWrapperClassName="gap-4"
                 renderItem={({item}) => (
                     <Card item={item} onPress={() => handlePress(item)}/>
                 )}
-            />
+            /> : <ActivityIndicator size="large" className="flex-1"/>}
 
 
         </SafeAreaView>
