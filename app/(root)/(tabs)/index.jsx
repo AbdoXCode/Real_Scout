@@ -9,6 +9,7 @@ import Card from "../../../components/Card";
 import Filter from "../../../components/filter";
 import useData from "../../../hooks/useData";
 import {useLocalSearchParams, useRouter} from "expo-router";
+import NoResults from "../../../components/NoResults";
 
 export default function Index() {
     const {user} = useUser()
@@ -69,6 +70,11 @@ export default function Index() {
                     </>
                 )}
                 data={filteredProperties}
+                ListEmptyComponent={
+                    <View className="flex-1 items-center my-5">
+                        <NoResults/>
+                    </View>
+                }
                 numColumns={2}
                 contentContainerClassName="gap-4 p-5 pb-28"
                 columnWrapperClassName="gap-4"

@@ -22,7 +22,7 @@ export default function Filter() {
             horizontal
             showsHorizontalScrollIndicator={false}
             data={categories}
-            className="my-4"
+            className="my-2"
             contentContainerClassName="gap-3"
             renderItem={({item}) => (
                 <TouchableOpacity

@@ -7,6 +7,7 @@ import SearchCustomBar from "../../../components/SearchCustomBar";
 import Filter from "../../../components/filter";
 import useData from "../../../hooks/useData";
 import Card from "../../../components/Card";
+import NoResults from "../../../components/NoResults";
 
 export default function Explore() {
     const {properties, searchForProperty} = useData()
@@ -19,7 +20,7 @@ export default function Explore() {
     const [searchResults, setSearchResults] = useState([])
 
     function filterFromProperties() {
-        if (debouncedQuery === "") {
+        if (debouncedQuery.trim() === "") {
             if (!params.filter || params.filter === "All") {
                 return properties
             } else {
@@ -46,7 +47,7 @@ export default function Explore() {
 
     useEffect(() => {
         async function fetch() {
-            if (debouncedQuery) {
+            if (debouncedQuery.trim()) {
                 setLoading(true)
                 const data = await searchForProperty(debouncedQuery, params.filter)
                 setSearchResults(data)
@@ -86,6 +87,11 @@ export default function Explore() {
                 showsVerticalScrollIndicator={false}
                 data={filterFromProperties()}
                 numColumns={2}
+                ListEmptyComponent={
+                    <View className="flex-1 items-center my-10">
+                        <NoResults/>
+                    </View>
+                }
                 contentContainerClassName="gap-4 pb-28"
                 columnWrapperClassName="gap-4"
                 renderItem={({item}) => (
