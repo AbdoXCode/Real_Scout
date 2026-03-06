@@ -8,24 +8,24 @@ const DATABASE_ID = process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID
 const COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_ID
 
 export default function DataProvider({children}) {
-    const [properties,setProperties] = useState([])
+    const [properties, setProperties] = useState([])
     const [featuredProperties, setFeaturedProperties] = useState([])
 
-    async function fetchProperties(){
-        try{
+    async function fetchProperties() {
+        try {
             const response = await databases.listDocuments(
                 DATABASE_ID,
                 COLLECTION_ID,
             )
 
             setProperties(response.documents)
-        }catch (e){
+        } catch (e) {
             console.log(e)
         }
     }
 
-    async function fetchFeaturedProperties(){
-        try{
+    async function fetchFeaturedProperties() {
+        try {
             const response = await databases.listDocuments(
                 DATABASE_ID,
                 COLLECTION_ID,
@@ -33,21 +33,46 @@ export default function DataProvider({children}) {
             )
 
             setFeaturedProperties(response.documents)
-        }catch (e){
+        } catch (e) {
             console.log(e)
         }
     }
 
-    async function fetchPropertyById(id){
-        try{
+    async function fetchPropertyById(id) {
+        try {
             const response = await databases.listDocuments(
                 DATABASE_ID,
                 COLLECTION_ID,
-                [Query.equal("$id",id)]
+                [Query.equal("$id", id)]
             )
 
             return response.documents[0]
-        }catch(e){
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async function searchForProperty(value) {
+        if (!value) return [];
+
+        try {
+            const nameResponse = await databases.listDocuments(
+                DATABASE_ID,
+                COLLECTION_ID,
+                [
+                    Query.search("propertyName", value)
+                ]
+            )
+
+            const locationResponse = await databases.listDocuments(
+                DATABASE_ID,
+                COLLECTION_ID,
+                [
+                    Query.search("location", value)
+                ]
+            )
+            return [...nameResponse.documents, ...locationResponse.documents]
+        } catch (e) {
             console.log(e)
         }
     }
@@ -58,7 +83,7 @@ export default function DataProvider({children}) {
     }, []);
 
     return (
-        <DataContext.Provider value={{properties,featuredProperties,fetchPropertyById}}>
+        <DataContext.Provider value={{properties, featuredProperties, fetchPropertyById, searchForProperty}}>
             {children}
         </DataContext.Provider>
     )

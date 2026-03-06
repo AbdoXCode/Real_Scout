@@ -15,10 +15,10 @@ export default function Index() {
     const {properties, featuredProperties} = useData()
     const router = useRouter()
 
-    const filterParams = useLocalSearchParams()
+    const params = useLocalSearchParams()
 
-    const filteredProperties = (!filterParams.filter || filterParams.filter === "All") ? properties : properties.filter((item) => item.propertyType === filterParams.filter)
-    
+    const filteredProperties = (!params.filter || params.filter === "All") ? properties : properties.filter((item) => item.propertyType === params.filter)
+
     if (!user || !properties) {
         return <ActivityIndicator style={{flex: 1}} size="large"/>
     }
@@ -29,7 +29,7 @@ export default function Index() {
 
     return (
         <SafeAreaView className="bg-white flex-1">
-            {filteredProperties ? <FlatList
+            <FlatList
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={() => (
                     <>
@@ -42,7 +42,7 @@ export default function Index() {
                             <Image source={icons.bell} className="size-6 ml-auto"/>
                         </View>
 
-                        <SearchCustomBar/>
+                        <SearchCustomBar onPress={true}/>
 
                         <View className="flex-row justify-between mt-6 items-center">
                             <Text className="text-xl font-rubik-semibold color-black-300">Featured</Text>
@@ -75,7 +75,7 @@ export default function Index() {
                 renderItem={({item}) => (
                     <Card item={item} onPress={() => handlePress(item)}/>
                 )}
-            /> : <ActivityIndicator size="large" className="flex-1"/>}
+            />
 
 
         </SafeAreaView>

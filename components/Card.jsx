@@ -1,12 +1,13 @@
-import {View, Text, TouchableOpacity, Image} from 'react-native'
+import {Image, Text, TouchableOpacity, View} from 'react-native'
 import React from 'react'
 import icons from "../constants/icons";
 
-export default function Card({item,onPress}) {
+export default function Card({item, onPress}) {
     return (
-        <TouchableOpacity onPress={onPress} className="bg-white flex-1 relative shadow-lg py-4 px-3 rounded-xl justify-between">
+        <TouchableOpacity onPress={onPress}
+                          className="bg-white flex-1 relative shadow-lg py-4 px-3 rounded-2xl justify-between">
 
-            <Image source={{uri:item.image}} className="w-full h-40 rounded-lg"/>
+            <Image source={{uri: item.image}} className="w-full h-40 rounded-lg"/>
 
             <View className="flex-row items-center absolute top-5 right-5 bg-white rounded-full px-2.5 py-1 gap-1">
                 <Image source={icons.star} className="size-3.5"/>
