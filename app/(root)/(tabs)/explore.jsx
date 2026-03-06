@@ -37,7 +37,7 @@ export default function Explore() {
     useEffect(() => {
         const handler = setTimeout(() => {
             setDebouncedQuery(searchQuery);
-        }, 300);
+        }, 600);
 
         return () => {
             clearTimeout(handler);
@@ -51,7 +51,6 @@ export default function Explore() {
                 const data = await searchForProperty(debouncedQuery, params.filter)
                 setSearchResults(data)
                 setLoading(false)
-                Keyboard.dismiss()
 
             } else {
                 setSearchResults([])

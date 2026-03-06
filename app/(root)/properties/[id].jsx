@@ -33,6 +33,11 @@ export default function Property() {
     }
     return (
         <View className="flex-1">
+            <View className="absolute left-0 m-5 p-2 rounded-full bg-white z-10" style={{top: insets.top}}>
+                <TouchableOpacity onPress={() => router.back()}>
+                    <Image source={icons.backArrow} className="size-7"/>
+                </TouchableOpacity>
+            </View>
             <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="pb-36"
                         className="bg-white flex-1">
                 <View className="h-[400px] relative">
@@ -40,10 +45,7 @@ export default function Property() {
 
                     <View
                         style={{top: insets.top}}
-                        className={`flex-1 flex-row absolute right-0 left-0 m-5 items-center justify-between`}>
-                        <TouchableOpacity onPress={() => router.back()}>
-                            <Image source={icons.backArrow} className="size-7"/>
-                        </TouchableOpacity>
+                        className={`flex-1 flex-row absolute right-0 left-0 m-5 items-center justify-end`}>
 
                         <View className="flex-row gap-5">
                             <Image source={icons.heart} className="size-6" tintColor="black"/>
