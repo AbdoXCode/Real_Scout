@@ -232,7 +232,8 @@ export default function Property() {
                 className="absolute bottom-0 right-0 left-0 p-6 pb-10 bg-white rounded-t-3xl border border-[#0061FF1A] flex-row items-center justify-between">
                 <View>
                     <Text className="font-rubik-medium text-xs color-black-200 mb-2">Price</Text>
-                    <Text className="font-rubik-semibold text-2xl color-primary-300">${property.price}</Text>
+                    <Text
+                        className="font-rubik-semibold text-2xl color-primary-300">${property.price.toLocaleString("en-US")}</Text>
                 </View>
 
                 <TouchableOpacity className="bg-primary-300 py-4 rounded-full">

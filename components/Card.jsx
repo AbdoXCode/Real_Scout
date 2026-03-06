@@ -19,7 +19,8 @@ export default function Card({item, onPress}) {
                 <Text className="font-rubik color-black-100 text mt-1">{item.location}</Text>
 
                 <View className="flex-row w-full items-center justify-between mt-1">
-                    <Text className="font-rubik-bold color-primary-300 text-lg">${item.price}</Text>
+                    <Text
+                        className="font-rubik-bold color-primary-300 text-lg">${item.price.toLocaleString("en-US")}</Text>
                     <Image source={icons.heart} className="size-5" tintColor="grey"/>
                 </View>
 
