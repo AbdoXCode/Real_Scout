@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {SafeAreaView} from "react-native-safe-area-context";
-import {FlatList, Image, Text, TouchableOpacity, View} from "react-native";
+import {ActivityIndicator, FlatList, Image, Keyboard, Text, TouchableOpacity, View} from "react-native";
 import icons from "../../../constants/icons";
 import {router, useLocalSearchParams} from "expo-router";
 import SearchCustomBar from "../../../components/SearchCustomBar";
@@ -11,14 +11,56 @@ import Card from "../../../components/Card";
 export default function Explore() {
     const {properties, searchForProperty} = useData()
     const params = useLocalSearchParams()
-    const filteredProperties = (!params.filter || params.filter === "All") ? properties : properties.filter((item) => item.propertyType === params.filter)
 
     const [searchQuery, setSearchQuery] = useState("")
+    const [loading, setLoading] = useState(false)
     const [debouncedQuery, setDebouncedQuery] = useState("")
 
+    const [searchResults, setSearchResults] = useState([])
+
+    function filterFromProperties() {
+        if (debouncedQuery === "") {
+            if (!params.filter || params.filter === "All") {
+                return properties
+            } else {
+                return properties.filter((item) => item.propertyType === params.filter)
+            }
+        } else {
+            if (!params.filter || params.filter === "All") {
+                return searchResults
+            } else {
+                return searchResults.filter((item) => item.propertyType === params.filter)
+            }
+        }
+    }
+
     useEffect(() => {
-        
-    }, []);
+        const handler = setTimeout(() => {
+            setDebouncedQuery(searchQuery);
+        }, 300);
+
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [searchQuery]);
+
+    useEffect(() => {
+        async function fetch() {
+            if (debouncedQuery) {
+                setLoading(true)
+                const data = await searchForProperty(debouncedQuery, params.filter)
+                setSearchResults(data)
+                setLoading(false)
+                Keyboard.dismiss()
+
+            } else {
+                setSearchResults([])
+                Keyboard.dismiss()
+            }
+        }
+
+        fetch()
+    }, [debouncedQuery]);
 
 
     return (
@@ -41,16 +83,16 @@ export default function Explore() {
                 <Filter/>
             </View>
 
-            <FlatList
+            {!loading ? <FlatList
                 showsVerticalScrollIndicator={false}
-                data={filteredProperties}
+                data={filterFromProperties()}
                 numColumns={2}
                 contentContainerClassName="gap-4 pb-28"
                 columnWrapperClassName="gap-4"
                 renderItem={({item}) => (
                     <Card item={item} onPress={() => router.push(`properties/${item.$id}`)}/>
                 )}
-            />
+            /> : <ActivityIndicator size="large" className="flex-1"/>}
 
         </SafeAreaView>
     )
